@@ -677,6 +677,59 @@ print(classification_report(y_test, y_pred_label))
    macro avg       0.99      0.99      0.99       771
 weighted avg       0.99      0.99      0.99       771
 
+import matplotlib.pyplot as plt
+
+# Sample data
+tpr1 = [0, TP_rate , 1.0]  # Replace with your actual data
+fpr1 = [0.0,FP_rate, 1.0]  # Replace with your actual data
+tpr2 = [0,TP_rate2 , 1.0]  # Replace with your actual data
+fpr2 = [0.0,FP_rate2 , 1.0]  # Replace with your actual data
+tpr3 = [0, TP_rate3, 1.0]  # Replace with your actual data
+fpr3 = [0.0, FP_rate3, 1.0]  # Replace with your actual data
+
+# Plotting the ROC curves
+plt.figure(figsize=(8, 6))
+plt.plot(fpr1, tpr1, marker='o', linestyle='-', color='b', label='cnn time domain')
+plt.plot(fpr2, tpr2, marker='o', linestyle='-', color='r', label='cnn f domain')
+plt.plot(fpr3, tpr3, marker='o', linestyle='-', color='g', label='LSTM time domain')
+plt.plot([0, 1], [0, 1], linestyle='--', color='k', label='Random classifier')  # Plot random classifier line for all points
+
+# Plot annotations
+plt.xlabel('False Positive Rate (FPR)')
+plt.ylabel('True Positive Rate (TPR)')
+plt.title('Receiver Operating Characteristic (ROC) Curve')
+plt.legend(loc='lower right')
+plt.grid()
+plt.show()
+
+def calculate_auc(fpr, tpr):
+    auc = 0
+    for i in range(len(fpr1) - 1):
+        auc += (fpr1[i + 1] - fpr1[i]) * (tpr1[i] + tpr1[i + 1]) / 2
+    return auc
+
+# Example usage
+
+auc = calculate_auc(fpr, tpr)
+print(f"AUC: {auc}")
+
+def calculate_auc(fpr, tpr):
+    auc = 0
+    for i in range(len(fpr2) - 1):
+        auc += (fpr2[i + 1] - fpr2[i]) * (tpr2[i] + tpr2[i + 1]) / 2
+    return auc
+
+auc = calculate_auc(fpr, tpr)
+print(f"AUC: {auc}")
+
+def calculate_auc(fpr, tpr):
+    auc = 0
+    for i in range(len(fpr3) - 1):
+        auc += (fpr3[i + 1] - fpr3[i]) * (tpr3[i] + tpr3[i + 1]) / 2
+    return auc
+
+auc = calculate_auc(fpr, tpr)
+print(f"AUC: {auc}")
 
 
 
