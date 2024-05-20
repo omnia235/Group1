@@ -1,5 +1,8 @@
 # Group1
 Optimal Multi-Stage Arrhythmia Classification Approach
+team members (Samah khaled (24230025)
+Omnia Mohamed (24230007)
+Batool yousry (24230012))
 first read tha data (https://physionet.org/content/ecg-arrhythmia/1.0.0/WFDBRecords/01/#files-panel) 
 paper (https://www.nature.com/articles/s41597-020-0386-x)
 kaggle link(https://www.kaggle.com/datasets/erarayamorenzomuten/chapmanshaoxing-12lead-ecg-database)
